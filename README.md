@@ -21,7 +21,7 @@ cp .env.example .env
 
 ## 3) Levantar
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
 - Backend: http://localhost:3000/health  -> {"ok":true}
