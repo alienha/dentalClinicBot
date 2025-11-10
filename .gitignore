@@ -1,0 +1,14 @@
+# Archivo de secretos. ¡NUNCA SUBIR!
+.env
+
+# Archivos de la cola de Redis (si se crearan localmente)
+redis_data/
+
+# Dependencias de Node.js
+node_modules/
+
+# Archivos generados por el bot (capturas de pantalla)
+capturas/
+
+# Logs de pino (si se generan)
+*.log

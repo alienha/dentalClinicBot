@@ -1,0 +1,40 @@
+services:
+  backend:
+    container_name: backend
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "3000:3000"
+    command: ["node", "server.js"]
+    volumes:
+      - ./capturas:/app/capturas
+    depends_on:      # <-- ¡IMPORTANTE!
+      - redis        # <-- El backend esperará a redis
+
+  ngrok:
+    container_name: ngrok
+    image: ngrok/ngrok:latest
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    command:
+      - http
+      - --domain=eun-recondite-rosella.ngrok-free.dev
+      - backend:3000
+    ports:
+      - "4040:4040"
+
+  # --- ¡ESTO ES LO QUE TE FALTA! ---
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
+# --- ¡Y ESTO TAMBIÉN! ---
+volumes:
+  redis_data:
