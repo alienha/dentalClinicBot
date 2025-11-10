@@ -92,12 +92,12 @@ export async function rellenarFormularioIsi(datos = {}) {
     // RELLENAR CAMPOS EXACTOS QUE DECIDAS
     if (datos.nombre)      await page.fill("#Tnombre", datos.nombre);
     if (datos.apellidos)   await page.fill("#Tapellidos", datos.apellidos);
-    if (datos.telefono)    await page.fill("#Ttelefono", datos.telefono);
+    if (datos.telefono)    await page.fill("Tmovil", datos.telefono);
     if (datos.email)       await page.fill("#Temail", datos.email);
     if (datos.comentario)  await page.fill("#Tcomentario", datos.comentario);
     if (datos.tratamiento) await page.fill("#Ttratamiento", datos.tratamiento);
     if (datos.fuente)      await page.fill("#Tfuente", datos.fuente);
-    if (datos.dni)         await page.fill("#Tdni", datos.dni);
+    if (datos.dni)         await page.fill("#TCIF", datos.dni);
     if (datos.fecha_nacimiento) await page.fill("#Tfecha_nacimiento", datos.fecha_nacimiento);
     if (datos.sexo)        await page.selectOption("#Tsexo", String(datos.sexo));
     if (datos.direccion)   await page.fill("#Tdireccion", datos.direccion);

@@ -113,9 +113,6 @@ Por favor, registra al paciente manualmente.`
     );
   }
 });
-// --- Fin Eventos del Worker ---
-
-// --- Endpoints Modificados ---
 
 app.get("/health", (_, res) => res.json({ ok: true, queue: "ready" }));
 
