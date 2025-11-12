@@ -98,7 +98,7 @@ export async function rellenarFormularioIsi(datos = {}) {
     if (datos.tratamiento) await page.fill("#Ttratamiento", datos.tratamiento);
     if (datos.fuente)      await page.fill("#Tfuente", datos.fuente);
     if (datos.dni)         await page.fill("#TCIF", datos.dni);
-    if (datos.fdn) await page.fill("#Tfecha_nacimiento", datos.fecha_nacimiento);
+    if (datos.fdn) await page.fill("#Tfecha_nacimiento", datos.fdn);
     if (datos.sexo)        await page.selectOption("#Tsexo", String(datos.sexo));
     if (datos.direccion)   await page.fill("#Tdireccion", datos.direccion);
     if (datos.cp)          await page.fill("#Tcp", datos.cp);
