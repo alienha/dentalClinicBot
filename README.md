@@ -24,8 +24,7 @@ Copia `.env.example` a `.env` y edítalo con tus valores de login y el secreto d
 
 ```bash
 cp .env.example .env
-# edita .env con ISI_USER/ISI_PASS y WEBHOOK_SECRET.
-# NOTA: NGROK_AUTHTOKEN ya no es necesario.
+# edita .env con ISI_USER/ISI_PASS, WEBHOOK_SECRET y DUCKDNS_TOKEN.
 ```
 
 > Si despliegas en contenedor, Express ya está configurado para escuchar en 0.0.0.0
@@ -169,6 +168,5 @@ function enviarAlertaGoogle(mensaje) {
 
   - **Puerto y Protocolo:** La URL pública usa **`http`** y requiere el puerto `:3000` explícitamente, ya que no se está utilizando un túnel seguro con HTTPS.
   - **Mantenimiento:** El contenedor de `duckdns` se encarga de que tu IP pública se mantenga siempre sincronizada con el dominio `ejemplo.duckdns.org`.
-  - **`docker-compose.yml`:** El `TOKEN` de DuckDNS debe estar pegado directamente en el archivo `docker-compose.yml` (en la sección `duckdns` como variable de entorno).
-
+  - **docker-compose.yml**: El TOKEN de DuckDNS debe estar pegado directamente en el archivo docker-compose.yml (en la sección duckdns como variable de entorno).
 # dental-clinic-bot
