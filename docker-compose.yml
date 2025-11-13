@@ -11,23 +11,19 @@ services:
       - ./capturas:/app/capturas
     depends_on:      # <-- ¡IMPORTANTE!
       - redis        # <-- El backend esperará a redis
-
-  ngrok:
-    container_name: ngrok
-    image: ngrok/ngrok:latest
-    restart: unless-stopped
-    depends_on:
-      - backend
+duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    container_name: duckdns
+    network_mode: host #optional
     environment:
-      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
-    command:
-      - http
-      - --domain=eun-recondite-rosella.ngrok-free.dev
-      - backend:3000
-    ports:
-      - "4040:4040"
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - SUBDOMAINS=ejemplo
+      - TOKEN=${DUCKDNS_TOKEN} 
+      - LOG_FILE=true
+    restart: unless-stopped
 
-  # --- ¡ESTO ES LO QUE TE FALTA! ---
   redis:
     image: redis:7-alpine
     container_name: redis
@@ -35,6 +31,5 @@ services:
     volumes:
       - redis_data:/data
 
-# --- ¡Y ESTO TAMBIÉN! ---
 volumes:
   redis_data:
