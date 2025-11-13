@@ -115,8 +115,8 @@ export async function testLogin() {
     await page.waitForSelector('#Tnombre', { timeout: 20000 });
 
     // 3. Rellenar con datos de prueba
-    await page.fill('#Tnombre', "Test-Alía");
-    await page.fill('#Tapellidos', "Test-Buchar");
+    await page.fill('#Tnombre', "Test-Pepe");
+    await page.fill('#Tapellidos', "Test-Cebolla");
 
     // 4. Captura de éxito
     await takeScreenshot(page, "test_login_success");
