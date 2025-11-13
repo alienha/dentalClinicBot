@@ -77,8 +77,8 @@ export async function rellenarFormularioIsi(datos = {}) {
 
     // Esperar login OK
     await Promise.race([
-      page.waitForSelector('img[src$="logo_generico.png"]', { timeout: 30000 }),
-      page.waitForSelector('input[name="esi_user"]', { timeout: 30000 }).then(() => {
+      page.waitForSelector('img[src$="logo_generico.png"]', { timeout: 60000 }),
+      page.waitForSelector('input[name="esi_user"]', { timeout: 60000 }).then(() => {
         throw new Error("❌ Login incorrecto");
       })
     ]);
@@ -98,7 +98,7 @@ export async function rellenarFormularioIsi(datos = {}) {
     if (datos.tratamiento) await page.fill("#Ttratamiento", datos.tratamiento);
     if (datos.fuente)      await page.fill("#Tfuente", datos.fuente);
     if (datos.dni)         await page.fill("#TCIF", datos.dni);
-    if (datos.fdn) await page.fill("Tfechadenacimiento", datos.fdn);
+    if (datos.fdn) await page.fill("#Tfechadenacimiento", datos.fdn);
     if (datos.sexo)        await page.selectOption("#Tsexo", String(datos.sexo));
     if (datos.direccion)   await page.fill("#Tdireccion", datos.direccion);
     if (datos.cp)          await page.fill("#Tcp", datos.cp);
