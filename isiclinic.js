@@ -174,7 +174,7 @@ export async function rellenarFormularioIsi(datos = {}) {
     if (datos.provincia)  await page.fill("#Tprovincia", datos.provincia);
     if (datos.pais)       await page.fill("#Tpais", datos.pais);
 
-    // 5. GUARDAR REGISTRO (Comentado como en tu original)
+    // 5. GUARDAR REGISTRO 
     // Descomenta la siguiente línea cuando quieras guardar activamente:
     // await page.click("#guardarRegistro");
     // console.log("Formulario guardado (click en #guardarRegistro).");
